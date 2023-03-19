@@ -44,11 +44,11 @@ app.listen(PORT , () => {
 })
 
 
-app.get('/getAssestByPolicyId' , async (req,res, next) => {
+app.get('/getAssestByPolicyId' , async (req,res) => {
   
     res.header('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
+
     try {
   
     const latestBlock = await API.assetsPolicyByIdAll("075bc45055274a362eb5d0d86090f39ca269b5bd22abbce99d3e4a81")
