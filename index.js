@@ -33,12 +33,12 @@ app.listen(PORT , () => {
 })
 
 
-app.get('/' , async  (req,res) => {
+app.get('/' , (req,res) => {
   
 
     
       
-     await runExample(res)
+    runExample(res)
 
 
 
