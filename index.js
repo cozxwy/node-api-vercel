@@ -46,7 +46,8 @@ app.listen(PORT , () => {
 
 app.get('/getAssestByPolicyId' , async (req,res) => {
   
-
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept');
     
     try {
   
