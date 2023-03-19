@@ -39,13 +39,10 @@ app.get('/' , async (req,res) => {
     
     try {
   
-        const latestBlock = await API.blocksLatest();
-
-     
-      const pools = await API.pools({ page: 1, count: 10, order: "asc" });
+    const latestBlock = await API.blocksLatest();
 
       console.log("latestBlock", latestBlock);
-      res.send(`latestBlock  ${latestBlock['hash']}`)
+      res.send(`latestBlock  ${latestBlock.json()}`)
  
     } catch (err) {
       console.log("error", err);
