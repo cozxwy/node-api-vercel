@@ -14,12 +14,14 @@ async function runExample() {
       const pools = await API.pools({ page: 1, count: 10, order: "asc" });
 
       console.log("networkInfo", networkInfo);
+      res.send("networkInfo", networkInfo)
  
     } catch (err) {
       console.log("error", err);
+      res.send("error", err)
     }
 
-    return networkInfo
+    
   }
 
 const API = new Blockfrost.BlockFrostAPI({
@@ -36,7 +38,7 @@ app.get('/' , async  (req,res) => {
 
     
       
-      res.send(await runExample())
+     await runExample()
 
 
 
