@@ -50,7 +50,7 @@ app.get('/getAssestByPolicyId' , async (req,res) => {
     
     try {
   
-    const latestBlock = await API.assetsPolicyByIdAll("583c9e403f5974a6a3a186972dabaacf2a759fa0913ed9f12b34164d")
+    const latestBlock = await API.assetsPolicyByIdAll("075bc45055274a362eb5d0d86090f39ca269b5bd22abbce99d3e4a81")
       console.log("latestBlock", latestBlock);
       let a = JSON.stringify(latestBlock)
       res.send(`latestBlock  ${a}`)
