@@ -25,7 +25,10 @@ async function runExample(res) {
   }
 
 const API = new Blockfrost.BlockFrostAPI({
-    projectId: process.env.BlockFrostAPIKey, // see: https://blockfrost.io
+    //projectId: process.env.BlockFrostAPIKey, // see: https://blockfrost.io
+    projectId: process.env.BlockFrostAPIKeyMainnet, // see: https://blockfrost.io
+
+    
   });
 
 app.listen(PORT , () => {
@@ -33,14 +36,13 @@ app.listen(PORT , () => {
 })
 
 
-app.get('/' , async (req,res) => {
+app.get('/getAssestByPolicyId' , async (req,res) => {
   
 
     
     try {
   
-    const latestBlock = await API.blocksLatest();
-
+    const latestBlock = await API.assetsPolicyByIdAll("583c9e403f5974a6a3a186972dabaacf2a759fa0913ed9f12b34164d")
       console.log("latestBlock", latestBlock);
       let a = JSON.stringify(latestBlock)
       res.send(`latestBlock  ${a}`)
