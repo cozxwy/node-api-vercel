@@ -42,7 +42,8 @@ app.get('/' , async (req,res) => {
     const latestBlock = await API.blocksLatest();
 
       console.log("latestBlock", latestBlock);
-      res.send(`latestBlock  ${latestBlock.json()}`)
+      let a = JSON.stringify(latestBlock)
+      res.send(`latestBlock  ${a}`)
  
     } catch (err) {
       console.log("error", err);
