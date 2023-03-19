@@ -8,13 +8,13 @@ const Blockfrost = require("@blockfrost/blockfrost-js");
 async function runExample(res) {
     try {
   
-      const networkInfo = await API.network();
+        const latestBlock = await API.blocksLatest();
 
      
       const pools = await API.pools({ page: 1, count: 10, order: "asc" });
 
-      console.log("networkInfo", networkInfo);
-      res.send("networkInfo", networkInfo)
+      console.log("latestBlock", latestBlock);
+      res.send("latestBlock", latestBlock)
  
     } catch (err) {
       console.log("error", err);
