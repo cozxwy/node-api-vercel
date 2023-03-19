@@ -5,7 +5,7 @@ const Blockfrost = require("@blockfrost/blockfrost-js");
 // import { BlockFrostAPI } from '@blockfrost/blockfrost-js'; // using import syntax
 
 
-async function runExample() {
+async function runExample(res) {
     try {
   
       const networkInfo = await API.network();
@@ -38,7 +38,7 @@ app.get('/' , async  (req,res) => {
 
     
       
-     await runExample()
+     await runExample(res)
 
 
 
