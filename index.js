@@ -31,7 +31,6 @@ app.get('/' , (req,res) => {
           console.log("error", err);
         }
 
-        res.send('this is my API running...')
         res.send('networkInfo '+networkInfo)
       }
 
