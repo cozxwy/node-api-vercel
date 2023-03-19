@@ -31,12 +31,12 @@ app.listen(PORT , () => {
 })
 
 
-app.get('/' , (req,res) => {
+app.get('/' , async  (req,res) => {
   
 
     
       
-      res.send(runExample())
+      res.send(await runExample())
 
 
 
