@@ -33,12 +33,25 @@ app.listen(PORT , () => {
 })
 
 
-app.get('/' , (req,res) => {
+app.get('/' , async (req,res) => {
   
 
     
-      
-    runExample(res)
+    try {
+  
+        const latestBlock = await API.blocksLatest();
+
+     
+      const pools = await API.pools({ page: 1, count: 10, order: "asc" });
+
+      console.log("latestBlock", latestBlock);
+      res.send("latestBlock", latestBlock)
+ 
+    } catch (err) {
+      console.log("error", err);
+      res.send("error", err)
+    }
+
 
 
 
