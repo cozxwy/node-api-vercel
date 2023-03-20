@@ -11,9 +11,6 @@ const cron = require('node-cron');
 /*admin.initializeApp({
   credential: admin.credential.cert(process.env.firestore_key)
 });
-
-
-
 const db = admin.firestore();
 */
 
@@ -56,18 +53,6 @@ app.use(function (req, res, next) {
 
 }) */
 
-
-app.get('/getAssestByPolicyIdLoop', async (req, res) => {
-
-
-
-
-
-  res.send('ok');
-
-
-
-})
 
 
 
