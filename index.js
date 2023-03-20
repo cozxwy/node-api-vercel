@@ -2,6 +2,16 @@ const express = require('express')
 const app = express()
 const PORT = 4000
 const Blockfrost = require("@blockfrost/blockfrost-js");
+const admin = require("firebase-admin");
+//const serviceAccount = require("./hippyhorse-9cfdb-firebase-adminsdk-2b9z2-615fccbbe1.json");
+const cron = require('node-cron');
+admin.initializeApp({
+    credential: admin.credential.cert(process.env.firestore_key)
+}); 
+
+
+
+const db = admin.firestore();
 // import { BlockFrostAPI } from '@blockfrost/blockfrost-js'; // using import syntax
 
 
@@ -70,6 +80,28 @@ app.get('/getAssestByPolicyId' , async (req,res) => {
 app.get('/about' , (req,res) => {
     res.send('this is my about route.')
 }) 
+
+app.get('/getAssestByPolicyIdLoop' , (req,res) => {
+ 
+
+  cron.schedule('*/5 * * * *', () => {
+    const docRef = db.collection('users').doc('alice');
+
+    const data = {
+        name: 'AliceZ' + Math.floor(Math.random() * 112),
+        age: Math.floor(Math.random() * 99)
+    };
+
+    docRef.update(data);
+
+});
+
+res.json('ok');
+
+
+
+}) 
+
 
 
 module.exports = app
