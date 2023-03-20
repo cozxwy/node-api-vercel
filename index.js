@@ -1,54 +1,37 @@
-const express = require('express')
-const app = express()
-const PORT = 4000
-//import * as admin from 'firebase-admin';
-const { initializeApp } = require('firebase-admin/app');
+//Importing Express Module
+const express = require("express");
 
+//Importing Database
+const admin = require("firebase-admin");
+const db = require("./db");
 
-const admin = initializeApp({
-    credential: admin.credential.cert({
-      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-    })
-  });
+//Initialising Express
+const app = express();
 
+// Configuring Express
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
+//Creating APIs
 
-const db = admin.firestore();
+//GET request to display our todo list
+app.get("/", (req, res) => {
+  //Code to fecth data from the database will go here
+});
 
+//POST request to create a new task in todo list
+app.post("/create", (req, res) => {
+  //Code to add a new data to the database will go here
+});
 
-app.listen(PORT , () => {
-  console.log(` API listenning at ${PORT}`)
-})
+//POST request to delete a task in todo list
+app.post("/delete", (req, res) => {
+  //Code to delete a data from the database will go here
+});
 
-app.get('/', (req,res) => {
-  res.send('this my api run')
-})
+// Detect port number from the Node Server or use 5000
+const PORT = process.env.PORT || 5000;
 
-
-app.get('/about', async (req,res) => {
-
-
-  const user = await db.collection('users').doc('alice').get();
-
-  if (!user.exists) {
-    notFound();
-  }
-  else {
-    res.send(user.data().name)
-  }
-
-
-
-  
-
-})
-
-
-module.exports = app
-
-
-
-
-
+// Listen for URIs on a port
+app.listen(PORT, () => console.log(`Server started at ${PORT}`));
