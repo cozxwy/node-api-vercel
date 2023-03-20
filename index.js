@@ -5,13 +5,15 @@ const Blockfrost = require("@blockfrost/blockfrost-js");
 const admin = require("firebase-admin");
 //const serviceAccount = require("./hippyhorse-9cfdb-firebase-adminsdk-2b9z2-615fccbbe1.json");
 const cron = require('node-cron');
-admin.initializeApp({
-    credential: admin.credential.cert(process.env.firestore_key)
-}); 
+
+
+//admin.initializeApp({
+  //  credential: admin.credential.cert(process.env.firestore_key)
+//}); 
 
 
 
-const db = admin.firestore();
+//const db = admin.firestore();
 // import { BlockFrostAPI } from '@blockfrost/blockfrost-js'; // using import syntax
 
 
