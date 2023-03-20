@@ -34,11 +34,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.listen(PORT, () => {
-  console.log(`API litening on PORT ${PORT}`)
-
-})
-
 
 /*app.get('/getAssestByPolicyId' , async (req,res) => {
   
