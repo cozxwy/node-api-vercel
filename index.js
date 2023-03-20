@@ -15,24 +15,6 @@ const db = admin.firestore();
 // import { BlockFrostAPI } from '@blockfrost/blockfrost-js'; // using import syntax
 
 
-async function runExample(res) {
-    try {
-  
-        const latestBlock = await API.blocksLatest();
-
-     
-      const pools = await API.pools({ page: 1, count: 10, order: "asc" });
-
-      console.log("latestBlock", latestBlock);
-      res.send("latestBlock", latestBlock)
- 
-    } catch (err) {
-      console.log("error", err);
-      res.send("error", err)
-    }
-
-    
-  }
 
 const API = new Blockfrost.BlockFrostAPI({
     //projectId: process.env.BlockFrostAPIKey, // see: https://blockfrost.io
@@ -55,7 +37,7 @@ app.listen(PORT , () => {
 })
 
 
-app.get('/getAssestByPolicyId' , async (req,res) => {
+/*app.get('/getAssestByPolicyId' , async (req,res) => {
   
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
@@ -75,7 +57,7 @@ app.get('/getAssestByPolicyId' , async (req,res) => {
 
 
 
-}) 
+}) */
 
 
 app.get('/getAssestByPolicyIdLoop' , async (req,res) => {
