@@ -3,7 +3,6 @@ const app = express()
 const PORT = 4000
 const Blockfrost = require("@blockfrost/blockfrost-js");
 const admin = require("firebase-admin");
-const serviceAccount = require("./hippyhorse-9cfdb-firebase-adminsdk-2b9z2-615fccbbe1.json");
 const cron = require('node-cron');
 
 
