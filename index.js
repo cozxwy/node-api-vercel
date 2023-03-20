@@ -57,7 +57,9 @@ app.listen(PORT , () => {
 
 app.get('/getAssestByPolicyId' , async (req,res) => {
   
-   
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     try {
   
     const latestBlock = await API.assetsPolicyByIdAll("583c9e403f5974a6a3a186972dabaacf2a759fa0913ed9f12b34164d")
@@ -77,7 +79,9 @@ app.get('/getAssestByPolicyId' , async (req,res) => {
 
 
 app.get('/getAssestByPolicyIdLoop' , async (req,res) => {
- 
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
   cron.schedule('*/5 * * * *', () => {
     const docRef = db.collection('users').doc('alice');
