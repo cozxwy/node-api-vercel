@@ -2,17 +2,17 @@ const express = require('express')
 const app = express()
 const PORT = 4000
 //import * as admin from 'firebase-admin';
-const admin = require('firebase-admin')
+const { initializeApp } = require('firebase-admin/app');
 
-if (!admin.apps.length) {
-  admin.initializeApp({
+
+const admin = initializeApp({
     credential: admin.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
       privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
     })
   });
-}
+
 
 
 const db = admin.firestore();
