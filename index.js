@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const PORT = 4000
-import * as admin from 'firebase-admin';
+//import * as admin from 'firebase-admin';
+const admin = require('firebase-admin')
 
 if (!admin.apps.length) {
   admin.initializeApp({
