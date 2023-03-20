@@ -9,14 +9,14 @@ const cron = require('node-cron');
 
 // import { BlockFrostAPI } from '@blockfrost/blockfrost-js'; // using import syntax
 
-admin.initializeApp({
+/*admin.initializeApp({
   credential: admin.credential.cert(process.env.firestore_key)
 });
 
 
 
 const db = admin.firestore();
-
+*/
 
 
 const API = new Blockfrost.BlockFrostAPI({
@@ -68,6 +68,7 @@ app.get('/getAssestByPolicyIdLoop', async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+
 
 
 
