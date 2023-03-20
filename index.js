@@ -76,7 +76,7 @@ app.get('/getAssestByPolicyId' , async (req,res) => {
 }) 
 
 
-app.get('/getAssestByPolicyIdLoop' , (req,res) => {
+app.get('/getAssestByPolicyIdLoop' , async (req,res) => {
  
 
   cron.schedule('*/5 * * * *', () => {
